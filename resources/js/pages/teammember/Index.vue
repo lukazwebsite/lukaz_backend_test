@@ -1,0 +1,264 @@
+<script setup lang="ts">
+
+import AppLayout from '@/layouts/AppLayout.vue';
+import { Head, Link, usePage, router } from '@inertiajs/vue3';
+import { computed, onMounted, ref } from 'vue'
+import { Icon } from '@iconify/vue';
+import Drawer from 'primevue/drawer';
+import { useDataDate } from '@/composables/useDataDate';
+import Pagination from '@/components/Pagination.vue';
+import { useToast } from "primevue/usetoast";
+
+const toast = useToast();
+
+const props = defineProps({
+    teamMembers: Object,
+    checkPermission: Boolean
+});
+
+const page = usePage()
+const user = page.props.auth.user
+const { dateFunction, dateMonthFunction } = useDataDate();
+
+const menuAccess = computed(() => usePage().props.menuAccess);
+
+onMounted(() => {
+    add.value = menuAccess.value.find(access => access.action_id == 2) ?? null;
+    edit.value = menuAccess.value.find(access => access.action_id == 3) ?? null;
+    deleted.value = menuAccess.value.find(access => access.action_id == 4) ?? null;
+});
+
+const add = ref(null);
+const edit = ref(null);
+const deleted = ref(null);
+const loading = ref(false)
+const name = ref('');
+const designation = ref('');
+const fromDate = ref('');
+const toDate = ref('');
+const status = ref(1);
+
+const pageNumber = ref(props.teamMembers?.current_page);
+
+const breadcrumbs = ref([
+    { title: 'Dashboard', href: '/' },
+    { title: 'Team Member', href: '/team_member' }
+]);
+
+const visibleRight = ref(false);
+
+const submit = () => {
+
+    const formData = new FormData();
+    formData.append('name', name.value);
+    formData.append('designation', designation.value);
+    formData.append('fromDate', fromDate.value);
+    formData.append('toDate', toDate.value);
+    formData.append('status', status.value);
+
+    router.post('/team_member/paginate/filters', formData, {
+        headers: {
+            Accept: 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+        forceFormData: true,
+    });
+
+    visibleRight.value = false;
+};
+
+const goToPage = () => {
+    if (pageNumber.value < 1) {
+        pageNumber.value = 1;
+    }
+
+    router.get('/team_member?page=' + pageNumber.value, {}, {
+        headers: {
+            Accept: 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+    });
+};
+
+const destroy = (id) => {
+    if (!confirm('Delete this team member?')) {
+        return;
+    }
+
+    router.delete('/team_member/' + id, {
+        headers: {
+            Accept: 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+        onSuccess: () => {
+            toast.add({ severity: 'success', summary: 'Success Message', detail: 'Team Member deleted successfully!', life: 3000 });
+        },
+        onError: () => {
+            toast.add({ severity: 'error', summary: 'Error Message', detail: 'Oops! Something wrongs', life: 3000 });
+        },
+    });
+};
+
+</script>
+
+<template>
+
+    <Head title="All Team Member" />
+
+    <AppLayout :breadcrumbs="breadcrumbs" :loading="loading">
+        <Toast position="top-right" />
+        <div class="w-full mx-auto p-2 flex flex-row place-content-center">
+            <div className="w-5/6 mt-4 shadow-lg bg-white rounded-md pb-1">
+                <div class="flex justify-between bg-gray-300 px-2 py-1 items-center rounded-t-md">
+                    <div class="text-lg font-semibold">Team Member List</div>
+                    <div class="flex">
+                        <div :class="{ 'rounded-md': !checkPermission }"
+                            class="bg-sky-600 items-center p-2 flex px-4 rounded-l-md cursor-pointer"
+                            @click="visibleRight = true">
+                            <Icon icon="mdi:filter-outline" width="1.5rem" height="1.5rem" class="text-white" />
+                            <div class="px-2 text-white text-lg ">Filter</div>
+                        </div>
+
+                        <Link v-if="add?.action_id || checkPermission" href="/team_member/create"
+                            class="bg-green-600 p-2 rounded-r-md text-lg px-3 flex text-black text-white">
+                        <Icon icon="fluent:add-12-filled" class="mr-2" width="1.5rem" height="1.5erm" /> Add Team Member
+                        </Link>
+                    </div>
+                </div>
+
+                <!-- main content goes here -->
+                <div class="px-3 h-[calc(100vh-13rem)] overflow-auto pb-3">
+                    <div class="w-full border-t mt-4">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-gray-600 text-white">
+                                    <th>SL</th>
+                                    <th>Order</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Designation</th>
+                                    <th>WhatsApp</th>
+                                    <th>Status</th>
+                                    <th>...</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(member, index) in Object.values(teamMembers?.data)"
+                                    class="odd:bg-white even:bg-gray-200 text-gray-800" :key="index">
+                                    <td class="text-center">{{ ((teamMembers?.current_page - 1) * teamMembers?.per_page)
+                                        + (index + 1) }}</td>
+                                    <td class="text-center font-semibold">{{ member?.sort_order }}</td>
+                                    <td><img v-if="member?.image" :src="`/team/${member?.image}`" width="40px"
+                                            height="auto" /></td>
+                                    <td>{{ member?.name }}</td>
+                                    <td>{{ member?.designation }}</td>
+                                    <td>{{ member?.whatsapp }}</td>
+                                    <td class="p-2">{{ (member?.status) ? 'Active' : 'Inactive' }}</td>
+                                    <td class="flex gap-1 place-content-center">
+                                        <Link v-if="edit?.action_id || checkPermission"
+                                            :href="`/team_member/${member?.id}/edit`">
+                                        <Icon icon="icon-park-outline:pencil"
+                                            class="bg-red-500 hover:bg-red-600 p-1 w-auto h-8 cursor-pointer text-white rounded-sm"
+                                            width="1.3rem" />
+                                        </Link>
+                                        <Icon v-if="deleted?.action_id || checkPermission" icon="mdi:trash-can-outline"
+                                            @click="destroy(member?.id)"
+                                            class="bg-gray-600 hover:bg-gray-700 p-1 w-auto h-8 cursor-pointer text-white rounded-sm"
+                                            width="1.3rem" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="flex justify-between w-full px-3 py-2 border-t">
+
+                    <div class="flex">
+                        <input
+                            class="ring-0 border border-r-0 ring-0 rounded-l-md p-1 px-3 focus:outline-none focus:ring-0"
+                            v-model="pageNumber" type="number" />
+                        <div class="bg-gray-100 p-2 rounded-r-md">
+                            <Icon @click="goToPage" icon="nonicons:go-16" />
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Pagination Component -->
+                        <Pagination :links="teamMembers?.links" />
+                    </div>
+
+                </div>
+
+                <Drawer v-model:visible="visibleRight" header="Team Member Filter" position="right">
+                    <form @submit.prevent="submit">
+                        <div class="grid grid-col-1 mt-4">
+
+                            <div class="card w-full justify-center mt-2">
+                                <label for="dd-city" class="text-md w-full content-center font-semibold">Name</label>
+                                <div class="card flex justify-center">
+                                    <input v-model="name"
+                                        class="w-full text-sm border py-1 px-2 rounded-md outline-none focus:border-green-200" />
+                                </div>
+                            </div>
+
+                            <div class="card w-full justify-center mt-2">
+                                <label for="dd-city"
+                                    class="text-md w-full content-center font-semibold">Designation</label>
+                                <div class="card flex justify-center">
+                                    <input v-model="designation"
+                                        class="w-full text-sm border py-1 px-2 rounded-md outline-none focus:border-green-200" />
+                                </div>
+                            </div>
+
+                            <div class="card w-full justify-center">
+                                <label for="dd-city" class="text-md w-full content-center font-semibold">Status</label>
+                                <select v-model="status"
+                                    class="w-full text-md border py-1 px-2 outline-none focus:border-green-200 rounded-md">
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
+                                </select>
+                            </div>
+
+                            <div class="card w-full justify-center mt-2">
+                                <label for="dd-city" class="text-md w-full content-center font-semibold">From
+                                    Date</label>
+                                <div class="card flex justify-center">
+                                    <input v-model="fromDate" type="date"
+                                        class="w-full border rounded-md outline-none focus:border-green-20 text-sm p-2" />
+                                </div>
+                            </div>
+
+                            <div class="card w-full justify-center mt-2">
+                                <label for="dd-city" class="text-md w-full content-center font-semibold">To Date</label>
+                                <div class="card flex justify-center">
+                                    <input v-model="toDate" type="date"
+                                        class="w-full border rounded-md outline-none focus:border-green-20 text-sm p-2" />
+                                </div>
+                            </div>
+
+                            <div class="card w-full justify-center mt-2">
+
+                                <button type="submit"
+                                    class="bg-green-600 py-1 px-4 font-semibold text-white rounded-sm flex cursor-pointer">Filter
+                                    <Icon icon="fa7-solid:magnifying-glass" class="m-1 mr-2" />
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </form>
+                </Drawer>
+
+            </div>
+
+        </div>
+    </AppLayout>
+</template>
+<style scoped>
+table tr td,
+th {
+    padding: 4px;
+    text-align: left;
+
+}
+</style>

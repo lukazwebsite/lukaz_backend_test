@@ -1,0 +1,195 @@
+
+=== Brand wise products ===
+======================================================================================
+GET	= http://127.0.0.1:8000/api/brands/nick/with/products
+======================================================================================
+
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+
+{
+  "message": "Brand retrieved successfully",
+  "brand": {
+    "id": 1,
+    "name": "Nick",
+    "slug": "nick",
+    "icon": "icon/nick_xmRdshhdn6YE4J3e.png",
+    "thumbnail": "thumbnail/nick_oRYt6HHFos0PK7Fk.png",
+    "banner": "banner/nick_Qq8tr0lnJYN28vvJ.png",
+    "sequance": 63,
+    "description": "this is the best",
+    "status": 1,
+    "created_by": null,
+    "updated_by": 1,
+    "created_at": "2025-08-01T20:57:00.000000Z",
+    "updated_at": "2025-08-03T03:56:29.000000Z"
+  },
+  "products": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 5,
+        "product_id": 20,
+        "color": "Black",
+        "slug": "20_black",
+        "color_icon": "cXcMTVBhuyMpOfot.png",
+        "color_icon_small": "20_black_icon_40x40_cXcMTVBhuyMpOfot.png",
+        "color_thumbnails_small": "20_black_thumbnail_40x40_dvCn5Up2vGdeUsBL.png",
+        "color_thumbnails": "dvCn5Up2vGdeUsBL.png",
+        "color_galleries_small": "[\"20_black_galleries_40x40_9Fo2kZTsgJlkC4ld.jpeg\",\"20_black_galleries_40x40_gEWjJyq4RAipnSxr.jpeg\",\"20_black_galleries_40x40_IOZQ986RhbUruaWb.jpeg\"]",
+        "color_galleries": "[\"20_black_galleries_P3f5xNRBonpSiPV3.jpeg\",\"20_black_galleries_ufNS92pghGdUmv24.jpeg\",\"20_black_galleries_RhYRi8vfFQD24IDr.jpeg\"]",
+        "created_at": null,
+        "updated_at": "2025-08-11T22:10:45.000000Z",
+        "product": {
+          "id": 20,
+          "name": "Est nulla non volupt",
+          "slug": "est-nulla-non-volupt",
+          "regular_price": 78,
+          "current_price": 9,
+          "discount_type": "1",
+          "discount": 39,
+          "brand_id": 1,
+          "status": 1,
+          "category_ids": [
+            "7",
+            "4"
+          ],
+          "sku": "SKUT",
+          "description": "\u003Cp\u003ECupidatat&nbsp;aliqua.&nbsp;Ex.\u003C/p\u003E",
+          "color": [
+            "Orange",
+            "Black",
+            "Blue"
+          ],
+          "size": [
+            "42",
+            "44",
+            "46"
+          ],
+          "is_pre_order": 0,
+          "pre_order_days": "4",
+          "pre_order_notes": "Pre note is going here",
+          "seo_title": "Est tenetur ut non d",
+          "seo_description": "Adipisci corrupti e",
+          "seo_keywords": "Autem dolores blandi",
+          "start_date": null,
+          "end_date": null,
+          "start_time": null,
+          "end_time": null,
+          "special_discount": 0,
+          "created_by": 1,
+          "updated_by": 1,
+          "created_at": "2025-08-10T08:36:00.000000Z",
+          "updated_at": "2025-08-10T08:36:00.000000Z"
+        }
+      },
+
+    ],
+    "first_page_url": "/api/brands/nick/with/products?page=1",
+    "from": 1,
+    "last_page": 5,
+    "last_page_url": "/api/brands/nick/with/products?page=5",
+    "links": [
+
+    ],
+    "next_page_url": "/api/brands/nick/with/products?page=2",
+    "path": "/api/brands/nick/with/products",
+    "per_page": 10,
+    "prev_page_url": null,
+    "to": 10,
+    "total": 46
+  }
+}
+
+
+
+
+=== Brand List ===
+======================================================================================
+GET	= http://127.0.0.1:8000/api/brands
+======================================================================================
+
+--------------------------------------------------------------------------------------
+### INPUT
+--------------------------------------------------------------------------------------
+limit = ?  or per_page = ?
+
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+[
+    {
+        "id": 1,
+        "name": "Nick",
+        "slug": "nick",
+        "icon": "icon/nick_xmRdshhdn6YE4J3e.png",
+        "thumbnail": "thumbnail/nick_oRYt6HHFos0PK7Fk.png",
+        "banner": "banner/nick_Qq8tr0lnJYN28vvJ.png",
+        "sequance": 63,
+        "description": "this is the best",
+        "status": 1,
+        "created_by": null,
+        "updated_by": 1,
+        "created_at": "2025-08-01T20:57:00.000000Z",
+        "updated_at": "2025-08-03T03:56:29.000000Z"
+    },
+    {
+        "id": 2,
+        "name": "test",
+        "slug": "test",
+        "icon": "icon/asdfasdf-asfasdf-dde322_lRKjc9agpKMllzqF.jpeg",
+        "thumbnail": "thumbnail/asdfasdf-asfasdf-dde322_ByTgbJmZvGfII4QE.jpeg",
+        "banner": "banner/asdfasdf-asfasdf-dde322_6HEkOdLmsKla8G7k.jpeg",
+        "sequance": null,
+        "description": "asdfasdf adsfasdf",
+        "status": 1,
+        "created_by": 1,
+        "updated_by": 1,
+        "created_at": "2025-08-03T01:49:13.000000Z",
+        "updated_at": "2025-08-04T08:59:43.000000Z"
+    }
+]
+
+
+=== Brand List ===
+======================================================================================
+GET	= http://127.0.0.1:8000/api/brand
+======================================================================================
+
+
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+[
+    {
+        "id": 1,
+        "name": "Nick",
+        "slug": "nick",
+        "icon": "icon/nick_xmRdshhdn6YE4J3e.png",
+        "thumbnail": "thumbnail/nick_oRYt6HHFos0PK7Fk.png",
+        "banner": "banner/nick_Qq8tr0lnJYN28vvJ.png",
+        "sequance": 63,
+        "description": "this is the best",
+        "status": 1,
+        "created_by": null,
+        "updated_by": 1,
+        "created_at": "2025-08-01T20:57:00.000000Z",
+        "updated_at": "2025-08-03T03:56:29.000000Z"
+    },
+    {
+        "id": 2,
+        "name": "test",
+        "slug": "test",
+        "icon": "icon/asdfasdf-asfasdf-dde322_lRKjc9agpKMllzqF.jpeg",
+        "thumbnail": "thumbnail/asdfasdf-asfasdf-dde322_ByTgbJmZvGfII4QE.jpeg",
+        "banner": "banner/asdfasdf-asfasdf-dde322_6HEkOdLmsKla8G7k.jpeg",
+        "sequance": null,
+        "description": "asdfasdf adsfasdf",
+        "status": 1,
+        "created_by": 1,
+        "updated_by": 1,
+        "created_at": "2025-08-03T01:49:13.000000Z",
+        "updated_at": "2025-08-04T08:59:43.000000Z"
+    }
+]

@@ -1,0 +1,23 @@
+========================= Video Feature List =========================================
+======================================================================================
+GET	= http://127.0.0.1:8000/api/video/feature
+======================================================================================
+
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+[
+    {
+        "id": 1,
+        "title": "Discover the Latest Trends",
+        "description": "Watch our product highlights in action",
+        "video_link": "https://www.youtube.com/embed/9vHNTuexED4?autoplay=1&mute=1&controls=0&showinfo=0&loop=1&playlist=9vHNTuexED4",
+        "button_text": "Shop Now",
+        "status": 1,
+        "created_by": 2,
+        "updated_by": 2,
+        "created_at": "2025-09-13T11:44:42.000000Z",
+        "updated_at": "2025-09-13T11:44:48.000000Z"
+    }
+]
+

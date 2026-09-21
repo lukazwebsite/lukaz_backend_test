@@ -1,0 +1,155 @@
+=== Menus ===
+======================================================================================
+GET	= http://127.0.0.1:8000/api/menus
+======================================================================================
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+[
+  {
+    "id": 1,
+    "parent_id": null,
+    "name": "Test Category",
+    "slug": "test-category",
+    "icon": "/private/var/tmp/phpGkesaW",
+    "thumbnail": "/private/var/tmp/phpWOr0VD",
+    "banner": null,
+    "sequence": null,
+    "description": null,
+    "status": 1,
+    "isActive": 1,
+    "created_by": null,
+    "updated_by": null,
+    "created_at": "2025-08-03T07:08:15.000000Z",
+    "updated_at": "2025-08-03T07:08:15.000000Z",
+    "childs": [
+      {
+        "id": 4,
+        "parent_id": 1,
+        "name": "Sub Category",
+        "slug": "sub-category",
+        "icon": "icon/sub-category_M4HOfuUeFEAjBGJg.png",
+        "thumbnail": "thumbnail/sub-category_tbbBxHdOC7i2dHN4.png",
+        "banner": "banner/sub-category_ceKLUYeu4jBopYTx.png",
+        "sequence": null,
+        "description": "This is sub category",
+        "status": 1,
+        "isActive": 1,
+        "created_by": 1,
+        "updated_by": 1,
+        "created_at": "2025-08-03T07:57:46.000000Z",
+        "updated_at": "2025-08-04T09:57:36.000000Z",
+        "childs": [
+          {
+            "id": 6,
+            "parent_id": 4,
+            "name": "Children of Sub Category ",
+            "slug": "sub-category-02",
+            "icon": "icon/sub-category_M4HOfuUeFEAjBGJg.png",
+            "thumbnail": "thumbnail/sub-category_tbbBxHdOC7i2dHN4.png",
+            "banner": "banner/sub-category_ceKLUYeu4jBopYTx.png",
+            "sequence": null,
+            "description": "This is sub category",
+            "status": 1,
+            "isActive": 1,
+            "created_by": 1,
+            "updated_by": 1,
+            "created_at": "2025-08-03T07:57:46.000000Z",
+            "updated_at": "2025-08-03T07:57:46.000000Z",
+            "childs": []
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "parent_id": 1,
+        "name": "Sub Category",
+        "slug": "sub-category 02",
+        "icon": "icon/sub-category_M4HOfuUeFEAjBGJg.png",
+        "thumbnail": "thumbnail/sub-category_tbbBxHdOC7i2dHN4.png",
+        "banner": "banner/sub-category_ceKLUYeu4jBopYTx.png",
+        "sequence": null,
+        "description": "This is sub category",
+        "status": 1,
+        "isActive": 1,
+        "created_by": 1,
+        "updated_by": 1,
+        "created_at": "2025-08-03T07:57:46.000000Z",
+        "updated_at": "2025-08-03T07:57:46.000000Z",
+        "childs": []
+      },
+      {
+        "id": 7,
+        "parent_id": 1,
+        "name": "Child of children 0023",
+        "slug": "child-of-children-0023",
+        "icon": "icon/child-of-children_Rdtw0w6iFu7opwOh.png",
+        "thumbnail": "thumbnail/child-of-children_ZyOSc5zXVZJwysAx.png",
+        "banner": "banner/child-of-children_c7HyWhLNy0WgeB5C.png",
+        "sequence": null,
+        "description": "This is test",
+        "status": 1,
+        "isActive": 1,
+        "created_by": 1,
+        "updated_by": 1,
+        "created_at": "2025-08-04T07:55:35.000000Z",
+        "updated_at": "2025-08-04T09:47:01.000000Z",
+        "childs": []
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "parent_id": null,
+    "name": "Test Category 02",
+    "slug": "test-category-02",
+    "icon": "/private/var/tmp/phpRnaU3P",
+    "thumbnail": "/private/var/tmp/phpNpYudR",
+    "banner": null,
+    "sequence": null,
+    "description": "null",
+    "status": 1,
+    "isActive": 1,
+    "created_by": null,
+    "updated_by": 1,
+    "created_at": "2025-08-03T07:11:29.000000Z",
+    "updated_at": "2025-08-04T09:02:18.000000Z",
+    "childs": []
+  },
+  {
+    "id": 3,
+    "parent_id": null,
+    "name": "Test Category 03",
+    "slug": "test-category-03",
+    "icon": "icon/test-category-03_319H3EkfAVtGbQvR.jpeg",
+    "thumbnail": "thumbnail/test-category-03_sXL9Y2SsUfGRWMzQ.png",
+    "banner": null,
+    "sequence": null,
+    "description": "hello",
+    "status": 1,
+    "isActive": 1,
+    "created_by": 1,
+    "updated_by": 1,
+    "created_at": "2025-08-03T07:14:23.000000Z",
+    "updated_at": "2025-08-04T09:02:48.000000Z",
+    "childs": []
+  },
+  {
+    "id": 8,
+    "parent_id": null,
+    "name": "check",
+    "slug": "check",
+    "icon": "icon/check_a5Pq4dJxotsai8GF.png",
+    "thumbnail": "thumbnail/check_KeDnI4irU2T9d2WN.png",
+    "banner": null,
+    "sequence": null,
+    "description": "null",
+    "status": 1,
+    "isActive": 1,
+    "created_by": 1,
+    "updated_by": 1,
+    "created_at": "2025-08-04T10:01:22.000000Z",
+    "updated_at": "2025-08-04T10:01:29.000000Z",
+    "childs": []
+  }
+]

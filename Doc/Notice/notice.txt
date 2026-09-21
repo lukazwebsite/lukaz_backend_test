@@ -1,0 +1,36 @@
+
+=== Notice List ===
+======================================================================================
+GET	= http://127.0.0.1:8000/api/notices
+======================================================================================
+
+
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+{
+    "message": "Notices retrieved successfully",
+    "data": [
+        {
+            "id": 3,
+            "title": "New arrivals just dropped!",
+            "description": "Check out the latest trends and newest pieces added to our store.",
+            "href": "https://example.com/new-arrivals"
+            "button_text": "Explore Now"
+        },
+        {
+            "id": 2,
+            "title": "Summer Sale: Up to 40% off !",
+            "description": "Enjoy big savings on selected styles until the end of this month.",
+            "href": "https://example.com/summer-sale"
+            "button_text": "Shop Now"
+        },
+        {
+            "id": 1,
+            "title": "Free delivery on orders over £50",
+            "description": "We offer free UK standard delivery on orders that exceed £50.",
+            "href": "https://example.com/free-delivery"
+            "button_text": "Shop Now"
+        }
+    ]
+}

@@ -1,0 +1,941 @@
+============================ Products =========================================
+======================================================================================
+GET	= http://127.0.0.1:8000/api/products
+======================================================================================
+
+--------------------------------------------------------------------------------------
+### INPUT
+--------------------------------------------------------------------------------------
+{
+    search=asdfasf
+    size=40
+    color=blue
+    category_id=1
+    brand_id = 1
+    page=1
+}
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+
+{
+    "message": "Products retrieved successfully",
+    "data": {
+        "current_page": 1,
+        "data": [{
+            "id": 21,
+            "product_id": 21,
+            "color": "[\"Blue\",\"Orange\"]",
+            "slug": "asdfasf",
+            "color_icon": "jEL80KUgMd6y6V1A.jpg",
+            "color_icon_small": "21_blue_icon_40x40_jEL80KUgMd6y6V1A.jpg",
+            "color_thumbnails_small": "21_blue_thumbnail_40x40_M8lENFRQN6qoCpPb.png",
+            "color_thumbnails": "M8lENFRQN6qoCpPb.png",
+            "color_galleries_small": null,
+            "color_galleries": null,
+            "created_at": "2025-08-16 13:52:46",
+            "updated_at": "2025-08-16 13:52:46",
+            "name": "asdfasf",
+            "regular_price": 150,
+            "current_price": 120,
+            "discount_type": "1",
+            "discount": 30,
+            "brand_id": 2,
+            "status": 0,
+            "category_ids": "[\"1\",\"2\"]",
+            "sku": "TP1",
+            "description": "\u003Cp\u003Easdf\u003C/p\u003E",
+            "size": "[\"40\",\"42\",\"44\"]",
+            "is_pre_order": 0,
+            "pre_order_days": null,
+            "pre_order_notes": null,
+            "seo_title": "af",
+            "seo_description": "adsf",
+            "seo_keywords": "asdf",
+            "start_date": null,
+            "end_date": null,
+            "start_time": null,
+            "end_time": null,
+            "special_discount": 0,
+            "created_by": 1,
+            "updated_by": 1
+        }],
+        "first_page_url": "http://127.0.0.1:8000/api/products?search=asdfasf&size=40&color=blue&category_id=1&page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http://127.0.0.1:8000/api/products?search=asdfasf&size=40&color=blue&category_id=1&page=1",
+        "links": [{
+            "url": null,
+            "label": "&laquo; Previous",
+            "page": null,
+            "active": false
+        }, {
+            "url": "http://127.0.0.1:8000/api/products?search=asdfasf&size=40&color=blue&category_id=1&page=1",
+            "label": "1",
+            "page": 1,
+            "active": true
+        }, {
+            "url": null,
+            "label": "Next &raquo;",
+            "page": null,
+            "active": false
+        }],
+        "next_page_url": null,
+        "path": "http://127.0.0.1:8000/api/products",
+        "per_page": 20,
+        "prev_page_url": null,
+        "to": 1,
+        "total": 1
+    }
+}
+
+
+
+
+
+============================ Products Search =========================================
+======================================================================================
+POST	= http://127.0.0.1:8000/api/products/search
+======================================================================================
+
+--------------------------------------------------------------------------------------
+### INPUT
+--------------------------------------------------------------------------------------
+{
+    "name": "dfsdfg",
+    "category": 4
+}
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+{
+    "message": "Products retrieved successfully",
+    "data": [
+        {
+            "id": 76,
+            "product_id": 25,
+            "additional_key": "25_yellow_44",
+            "slug": "25_yellow",
+            "sku": "yut-yellow-44",
+            "color": "Yellow",
+            "size": "44",
+            "status": 1,
+            "stock_status": 0,
+            "regular_price": 150,
+            "current_price": 120,
+            "discount": 30,
+            "discount_type": "1",
+            "stock": 0,
+            "created_by": 1,
+            "updated_by": 1,
+            "created_at": "2025-08-17T07:05:07.000000Z",
+            "updated_at": "2025-08-17T07:05:07.000000Z",
+            "product": {
+                "id": 25,
+                "name": "dfgsdgsdgsdfg",
+                "brand_id": 1,
+                "category_ids": [
+                    "7",
+                    "4"
+                ],
+                "brand": {
+                    "id": 1,
+                    "name": "Nick"
+                },
+                "categories": [
+                    {
+                        "id": 7,
+                        "parent_id": 1,
+                        "name": "Child of children 0023",
+                        "slug": "child-of-children-0023",
+                        "icon": "icon/child-of-children_Rdtw0w6iFu7opwOh.png",
+                        "thumbnail": "thumbnail/child-of-children_ZyOSc5zXVZJwysAx.png",
+                        "banner": "banner/child-of-children_c7HyWhLNy0WgeB5C.png",
+                        "sequence": null,
+                        "description": "This is test",
+                        "status": 1,
+                        "isActive": 1,
+                        "created_by": 1,
+                        "updated_by": 1,
+                        "created_at": "2025-08-04T13:55:35.000000Z",
+                        "updated_at": "2025-08-04T15:47:01.000000Z",
+                        "pivot": {
+                            "product_id": 25,
+                            "category_id": 7
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "parent_id": 1,
+                        "name": "Sub Category",
+                        "slug": "sub-category",
+                        "icon": "icon/sub-category_M4HOfuUeFEAjBGJg.png",
+                        "thumbnail": "thumbnail/sub-category_tbbBxHdOC7i2dHN4.png",
+                        "banner": "banner/sub-category_ceKLUYeu4jBopYTx.png",
+                        "sequence": null,
+                        "description": "This is sub category",
+                        "status": 1,
+                        "isActive": 1,
+                        "created_by": 1,
+                        "updated_by": 1,
+                        "created_at": "2025-08-03T13:57:46.000000Z",
+                        "updated_at": "2025-08-04T15:57:36.000000Z",
+                        "pivot": {
+                            "product_id": 25,
+                            "category_id": 4
+                        }
+                    }
+                ]
+            },
+            "media": {
+                "id": 16,
+                "product_id": 25,
+                "color": "Yellow",
+                "slug": "25_yellow",
+                "color_icon": null,
+                "color_icon_small": null,
+                "color_thumbnails_small": null,
+                "color_thumbnails": null,
+                "color_galleries_small": null,
+                "color_galleries": null,
+                "created_at": "2025-08-17T07:05:07.000000Z",
+                "updated_at": "2025-08-17T07:05:07.000000Z"
+            }
+        }
+    ]
+}
+
+======================= Products Filter ==============================================
+======================================================================================
+GET	= http://127.0.0.1:8000/api/products/filter?color=Black%2CYellow&size=44%2C40&name=df&category=7&brand=1%2C2&sort_by_price=low_to_high
+======================================================================================
+
+--------------------------------------------------------------------------------------
+### INPUT
+--------------------------------------------------------------------------------------
+{
+    "color": "Black,Yellow",
+    "size": "44,40",
+    "name": "df",
+    "category": "7",
+    "brand": "1,2",
+    "sort_by_price": "low_to_high"
+}
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+{
+    "message": "Products retrieved successfully",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 76,
+                "product_id": 25,
+                "additional_key": "25_yellow_44",
+                "slug": "25_yellow",
+                "sku": "yut-yellow-44",
+                "color": "Yellow",
+                "size": "44",
+                "status": 1,
+                "stock_status": 0,
+                "regular_price": 150,
+                "current_price": 120,
+                "discount": 30,
+                "discount_type": "1",
+                "stock": 0,
+                "created_by": 1,
+                "updated_by": 1,
+                "created_at": "2025-08-17T07:05:07.000000Z",
+                "updated_at": "2025-08-17T07:05:07.000000Z",
+                "product": {
+                    "id": 25,
+                    "name": "dfgsdgsdgsdfg",
+                    "brand_id": 1,
+                    "category_ids": [
+                        "7",
+                        "4"
+                    ],
+                    "status": 0,
+                    "brand": {
+                        "id": 1,
+                        "name": "Nick"
+                    },
+                    "categories": [
+                        {
+                            "id": 7,
+                            "parent_id": 1,
+                            "name": "Child of children 0023",
+                            "slug": "child-of-children-0023",
+                            "icon": "icon/child-of-children_Rdtw0w6iFu7opwOh.png",
+                            "thumbnail": "thumbnail/child-of-children_ZyOSc5zXVZJwysAx.png",
+                            "banner": "banner/child-of-children_c7HyWhLNy0WgeB5C.png",
+                            "sequence": null,
+                            "description": "This is test",
+                            "status": 1,
+                            "isActive": 1,
+                            "created_by": 1,
+                            "updated_by": 1,
+                            "created_at": "2025-08-04T13:55:35.000000Z",
+                            "updated_at": "2025-08-04T15:47:01.000000Z",
+                            "pivot": {
+                                "product_id": 25,
+                                "category_id": 7
+                            }
+                        },
+                        {
+                            "id": 4,
+                            "parent_id": 1,
+                            "name": "Sub Category",
+                            "slug": "sub-category",
+                            "icon": "icon/sub-category_M4HOfuUeFEAjBGJg.png",
+                            "thumbnail": "thumbnail/sub-category_tbbBxHdOC7i2dHN4.png",
+                            "banner": "banner/sub-category_ceKLUYeu4jBopYTx.png",
+                            "sequence": null,
+                            "description": "This is sub category",
+                            "status": 1,
+                            "isActive": 1,
+                            "created_by": 1,
+                            "updated_by": 1,
+                            "created_at": "2025-08-03T13:57:46.000000Z",
+                            "updated_at": "2025-08-04T15:57:36.000000Z",
+                            "pivot": {
+                                "product_id": 25,
+                                "category_id": 4
+                            }
+                        }
+                    ]
+                },
+                "media": {
+                    "id": 16,
+                    "product_id": 25,
+                    "color": "Yellow",
+                    "slug": "25_yellow",
+                    "color_icon": null,
+                    "color_icon_small": null,
+                    "color_thumbnails_small": null,
+                    "color_thumbnails": null,
+                    "color_galleries_small": null,
+                    "color_galleries": null,
+                    "created_at": "2025-08-17T07:05:07.000000Z",
+                    "updated_at": "2025-08-17T07:05:07.000000Z"
+                },
+                "review": [
+                    {
+                        "id": 1,
+                        "user_id": 1,
+                        "product_id": 25,
+                        "rating": 5,
+                        "title": "Amazing comfort and style",
+                        "review": "These shoes are incredibly comfortable for daily wear. The Air Max cushioning is perfect for long walks and the design looks great with any outfit.",
+                        "status": 1,
+                        "created_by": null,
+                        "updated_by": null,
+                        "deleted_at": null,
+                        "created_at": "2025-08-26T17:54:14.000000Z",
+                        "updated_at": "2025-08-26T17:54:14.000000Z"
+                    },
+                    {
+                        "id": 2,
+                        "user_id": 2,
+                        "product_id": 25,
+                        "rating": 5,
+                        "title": "Great quality, runs true to size",
+                        "review": "Excellent build quality and the sizing is accurate. I ordered my usual size and they fit perfectly. Highly recommend!",
+                        "status": 1,
+                        "created_by": null,
+                        "updated_by": null,
+                        "deleted_at": null,
+                        "created_at": "2025-08-29T09:33:05.000000Z",
+                        "updated_at": "2025-08-29T09:33:05.000000Z"
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "/api/products/filter?color=Black%2CYellow&size=44%2C40&name=df&category=7&brand=1%2C2&sort_by_price=low_to_high&page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "/api/products/filter?color=Black%2CYellow&size=44%2C40&name=df&category=7&brand=1%2C2&sort_by_price=low_to_high&page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "/api/products/filter?color=Black%2CYellow&size=44%2C40&name=df&category=7&brand=1%2C2&sort_by_price=low_to_high&page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "/api/products/filter",
+        "per_page": 10,
+        "prev_page_url": null,
+        "to": 4,
+        "total": 4
+    }
+}
+
+======================= Product Details ==============================================
+======================================================================================
+GET	= http://127.0.0.1:8000/api/products/{slug}
+======================================================================================
+
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+{
+    "message": "Products retrieved successfully",
+    "data": [
+        {
+            "id": 44,
+            "product_id": 33,
+            "color": "Orange",
+            "slug": "33_orange",
+            "color_icon": "MnW2JsjDNXpf4msP.jpg",
+            "color_icon_small": "33_orange_icon_40x40_MnW2JsjDNXpf4msP.jpg",
+            "color_thumbnails_small": "33_orange_thumbnail_40x40_Bn8Koy5tbxkUj2gV.png",
+            "color_thumbnails": "Bn8Koy5tbxkUj2gV.png",
+            "color_galleries_small": null,
+            "color_galleries": null,
+            "created_at": "2025-08-31T07:12:10.000000Z",
+            "updated_at": "2025-09-01T08:02:00.000000Z",
+            "product": {
+                "id": 33,
+                "name": "Pariatur Nisi est u",
+                "slug": "pariatur-nisi-est-u",
+                "regular_price": 59,
+                "current_price": 46,
+                "discount_type": "1",
+                "discount": 61,
+                "brand_id": 2,
+                "status": 0,
+                "category_ids": [
+                    "4",
+                    "5"
+                ],
+                "sku": "S005",
+                "description": "<p>Aperiam&nbsp;ea&nbsp;magna&nbsp;mag.</p>",
+                "color": [
+                    "Orange",
+                    "Black",
+                    "Green"
+                ],
+                "size": [
+                    "40",
+                    "42",
+                    "44",
+                    "46"
+                ],
+                "is_pre_order": 0,
+                "pre_order_days": "null",
+                "pre_order_notes": "null",
+                "seo_title": "null",
+                "seo_description": "null",
+                "seo_keywords": "null",
+                "start_date": "1970-01-01",
+                "end_date": "1970-01-01",
+                "start_time": "00:00:00",
+                "end_time": "00:00:00",
+                "special_discount": 0,
+                "created_by": 2,
+                "updated_by": 2,
+                "created_at": "2025-08-31T07:12:10.000000Z",
+                "updated_at": "2025-08-31T07:12:24.000000Z",
+                "brand": {
+                    "id": 2,
+                    "name": "test",
+                    "slug": "test",
+                    "icon": "icon/asdfasdf-asfasdf-dde322_lRKjc9agpKMllzqF.jpeg",
+                    "thumbnail": "thumbnail/asdfasdf-asfasdf-dde322_ByTgbJmZvGfII4QE.jpeg",
+                    "banner": "banner/asdfasdf-asfasdf-dde322_6HEkOdLmsKla8G7k.jpeg",
+                    "sequance": null,
+                    "description": "asdfasdf adsfasdf",
+                    "status": 1,
+                    "created_by": 1,
+                    "updated_by": 1,
+                    "created_at": "2025-08-03T01:49:13.000000Z",
+                    "updated_at": "2025-08-04T08:59:43.000000Z"
+                },
+                "categories": [
+                    {
+                        "id": 4,
+                        "parent_id": 1,
+                        "name": "Sub Category",
+                        "slug": "sub-category",
+                        "icon": "icon/sub-category_M4HOfuUeFEAjBGJg.png",
+                        "thumbnail": "thumbnail/sub-category_tbbBxHdOC7i2dHN4.png",
+                        "banner": "banner/sub-category_ceKLUYeu4jBopYTx.png",
+                        "sequence": null,
+                        "description": "This is sub category",
+                        "status": 1,
+                        "isActive": 1,
+                        "created_by": 1,
+                        "updated_by": 1,
+                        "created_at": "2025-08-03T07:57:46.000000Z",
+                        "updated_at": "2025-08-04T09:57:36.000000Z",
+                        "pivot": {
+                            "product_id": 33,
+                            "category_id": 4
+                        }
+                    },
+                    {
+                        "id": 5,
+                        "parent_id": 1,
+                        "name": "Sub Category",
+                        "slug": "sub-category 02",
+                        "icon": "icon/sub-category_M4HOfuUeFEAjBGJg.png",
+                        "thumbnail": "thumbnail/sub-category_tbbBxHdOC7i2dHN4.png",
+                        "banner": "banner/sub-category_ceKLUYeu4jBopYTx.png",
+                        "sequence": null,
+                        "description": "This is sub category",
+                        "status": 1,
+                        "isActive": 1,
+                        "created_by": 1,
+                        "updated_by": 1,
+                        "created_at": "2025-08-03T07:57:46.000000Z",
+                        "updated_at": "2025-08-03T07:57:46.000000Z",
+                        "pivot": {
+                            "product_id": 33,
+                            "category_id": 5
+                        }
+                    }
+                ],
+                "related_products": [
+                    {
+                        "id": 33,
+                        "name": "Pariatur Nisi est u",
+                        "slug": "pariatur-nisi-est-u",
+                        "regular_price": 59,
+                        "current_price": 46,
+                        "discount_type": "1",
+                        "discount": 61,
+                        "brand_id": 2,
+                        "status": 0,
+                        "category_ids": [
+                            "4",
+                            "5"
+                        ],
+                        "sku": "S005",
+                        "description": "<p>Aperiam&nbsp;ea&nbsp;magna&nbsp;mag.</p>",
+                        "color": [
+                            "Orange",
+                            "Black",
+                            "Green"
+                        ],
+                        "size": [
+                            "40",
+                            "42",
+                            "44",
+                            "46"
+                        ],
+                        "is_pre_order": 0,
+                        "pre_order_days": "null",
+                        "pre_order_notes": "null",
+                        "seo_title": "null",
+                        "seo_description": "null",
+                        "seo_keywords": "null",
+                        "start_date": "1970-01-01",
+                        "end_date": "1970-01-01",
+                        "start_time": "00:00:00",
+                        "end_time": "00:00:00",
+                        "special_discount": 0,
+                        "created_by": 2,
+                        "updated_by": 2,
+                        "created_at": "2025-08-31T07:12:10.000000Z",
+                        "updated_at": "2025-08-31T07:12:24.000000Z",
+                        "pivot": {
+                            "product_id": 33
+                        }
+                    },
+                    {
+                        "id": 33,
+                        "name": "Pariatur Nisi est u",
+                        "slug": "pariatur-nisi-est-u",
+                        "regular_price": 59,
+                        "current_price": 46,
+                        "discount_type": "1",
+                        "discount": 61,
+                        "brand_id": 2,
+                        "status": 0,
+                        "category_ids": [
+                            "4",
+                            "5"
+                        ],
+                        "sku": "S005",
+                        "description": "<p>Aperiam&nbsp;ea&nbsp;magna&nbsp;mag.</p>",
+                        "color": [
+                            "Orange",
+                            "Black",
+                            "Green"
+                        ],
+                        "size": [
+                            "40",
+                            "42",
+                            "44",
+                            "46"
+                        ],
+                        "is_pre_order": 0,
+                        "pre_order_days": "null",
+                        "pre_order_notes": "null",
+                        "seo_title": "null",
+                        "seo_description": "null",
+                        "seo_keywords": "null",
+                        "start_date": "1970-01-01",
+                        "end_date": "1970-01-01",
+                        "start_time": "00:00:00",
+                        "end_time": "00:00:00",
+                        "special_discount": 0,
+                        "created_by": 2,
+                        "updated_by": 2,
+                        "created_at": "2025-08-31T07:12:10.000000Z",
+                        "updated_at": "2025-08-31T07:12:24.000000Z",
+                        "pivot": {
+                            "product_id": 33
+                        }
+                    }
+                ]
+            },
+            "gallaries": [
+                {
+                    "id": 44,
+                    "product_id": 33,
+                    "color": "Orange",
+                    "slug": "33_orange",
+                    "color_icon": "MnW2JsjDNXpf4msP.jpg",
+                    "color_icon_small": "33_orange_icon_40x40_MnW2JsjDNXpf4msP.jpg",
+                    "color_thumbnails_small": "33_orange_thumbnail_40x40_Bn8Koy5tbxkUj2gV.png",
+                    "color_thumbnails": "Bn8Koy5tbxkUj2gV.png",
+                    "color_galleries_small": null,
+                    "color_galleries": null,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-09-01T08:02:00.000000Z"
+                },
+                {
+                    "id": 45,
+                    "product_id": 33,
+                    "color": "Black",
+                    "slug": "33_black",
+                    "color_icon": "eLFMXQFgWGIoBUkA.png",
+                    "color_icon_small": "33_black_icon_40x40_eLFMXQFgWGIoBUkA.png",
+                    "color_thumbnails_small": "33_black_thumbnail_40x40_PuD0uxEyrMbmmWvf.png",
+                    "color_thumbnails": "PuD0uxEyrMbmmWvf.png",
+                    "color_galleries_small": null,
+                    "color_galleries": null,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-09-01T08:02:21.000000Z"
+                },
+                {
+                    "id": 46,
+                    "product_id": 33,
+                    "color": "Green",
+                    "slug": "33_green",
+                    "color_icon": "8XcL3S9RDiPDZsa8.jpg",
+                    "color_icon_small": "33_green_icon_40x40_8XcL3S9RDiPDZsa8.jpg",
+                    "color_thumbnails_small": "33_green_thumbnail_40x40_v5wCh1PfQztfZqwC.png",
+                    "color_thumbnails": "v5wCh1PfQztfZqwC.png",
+                    "color_galleries_small": null,
+                    "color_galleries": null,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-09-01T08:03:02.000000Z"
+                }
+            ],
+            "additional": [
+                {
+                    "id": 117,
+                    "product_id": 33,
+                    "additional_key": "33_orange_40",
+                    "slug": "33_orange",
+                    "sku": "s005-orange-40",
+                    "color": "Orange",
+                    "size": "40",
+                    "status": 1,
+                    "stock_status": 0,
+                    "regular_price": 59,
+                    "current_price": 46,
+                    "discount": 61,
+                    "discount_type": "1",
+                    "stock": 120,
+                    "created_by": 2,
+                    "updated_by": 2,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-08-31T07:12:10.000000Z"
+                },
+                {
+                    "id": 118,
+                    "product_id": 33,
+                    "additional_key": "33_orange_42",
+                    "slug": "33_orange",
+                    "sku": "s005-orange-42",
+                    "color": "Orange",
+                    "size": "42",
+                    "status": 1,
+                    "stock_status": 0,
+                    "regular_price": 59,
+                    "current_price": 46,
+                    "discount": 61,
+                    "discount_type": "1",
+                    "stock": 120,
+                    "created_by": 2,
+                    "updated_by": 2,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-08-31T07:12:10.000000Z"
+                },
+                {
+                    "id": 119,
+                    "product_id": 33,
+                    "additional_key": "33_orange_44",
+                    "slug": "33_orange",
+                    "sku": "s005-orange-44",
+                    "color": "Orange",
+                    "size": "44",
+                    "status": 1,
+                    "stock_status": 0,
+                    "regular_price": 59,
+                    "current_price": 46,
+                    "discount": 61,
+                    "discount_type": "1",
+                    "stock": 120,
+                    "created_by": 2,
+                    "updated_by": 2,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-08-31T07:12:10.000000Z"
+                },
+                {
+                    "id": 120,
+                    "product_id": 33,
+                    "additional_key": "33_orange_46",
+                    "slug": "33_orange",
+                    "sku": "s005-orange-46",
+                    "color": "Orange",
+                    "size": "46",
+                    "status": 1,
+                    "stock_status": 0,
+                    "regular_price": 59,
+                    "current_price": 46,
+                    "discount": 61,
+                    "discount_type": "1",
+                    "stock": 120,
+                    "created_by": 2,
+                    "updated_by": 2,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-08-31T07:12:10.000000Z"
+                }
+            ],
+            "stock": [
+                {
+                    "id": 199,
+                    "barcode": null,
+                    "product_id": 33,
+                    "branch_id": 4,
+                    "additional_key": "33_orange_40",
+                    "slug": "33_orange",
+                    "sku": "s005-orange-40",
+                    "color": "Orange",
+                    "size": "40",
+                    "status": 1,
+                    "stock_status": 0,
+                    "regular_price": 59,
+                    "current_price": 46,
+                    "discount": 61,
+                    "discount_type": "1",
+                    "stock": 0,
+                    "created_by": 2,
+                    "updated_by": 2,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-08-31T07:12:10.000000Z"
+                },
+                {
+                    "id": 200,
+                    "barcode": null,
+                    "product_id": 33,
+                    "branch_id": 4,
+                    "additional_key": "33_orange_42",
+                    "slug": "33_orange",
+                    "sku": "s005-orange-42",
+                    "color": "Orange",
+                    "size": "42",
+                    "status": 1,
+                    "stock_status": 0,
+                    "regular_price": 59,
+                    "current_price": 46,
+                    "discount": 61,
+                    "discount_type": "1",
+                    "stock": 0,
+                    "created_by": 2,
+                    "updated_by": 2,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-08-31T07:12:10.000000Z"
+                },
+                {
+                    "id": 201,
+                    "barcode": null,
+                    "product_id": 33,
+                    "branch_id": 4,
+                    "additional_key": "33_orange_44",
+                    "slug": "33_orange",
+                    "sku": "s005-orange-44",
+                    "color": "Orange",
+                    "size": "44",
+                    "status": 1,
+                    "stock_status": 0,
+                    "regular_price": 59,
+                    "current_price": 46,
+                    "discount": 61,
+                    "discount_type": "1",
+                    "stock": 0,
+                    "created_by": 2,
+                    "updated_by": 2,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-08-31T07:12:10.000000Z"
+                },
+                {
+                    "id": 202,
+                    "barcode": null,
+                    "product_id": 33,
+                    "branch_id": 4,
+                    "additional_key": "33_orange_46",
+                    "slug": "33_orange",
+                    "sku": "s005-orange-46",
+                    "color": "Orange",
+                    "size": "46",
+                    "status": 1,
+                    "stock_status": 0,
+                    "regular_price": 59,
+                    "current_price": 46,
+                    "discount": 61,
+                    "discount_type": "1",
+                    "stock": 0,
+                    "created_by": 2,
+                    "updated_by": 2,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-08-31T07:12:10.000000Z"
+                },
+                {
+                    "id": 211,
+                    "barcode": null,
+                    "product_id": 33,
+                    "branch_id": 5,
+                    "additional_key": "33_orange_40",
+                    "slug": "33_orange",
+                    "sku": "s005-orange-40",
+                    "color": "Orange",
+                    "size": "40",
+                    "status": 1,
+                    "stock_status": 0,
+                    "regular_price": 59,
+                    "current_price": 46,
+                    "discount": 61,
+                    "discount_type": "1",
+                    "stock": 0,
+                    "created_by": 2,
+                    "updated_by": 2,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-08-31T07:12:10.000000Z"
+                },
+                {
+                    "id": 212,
+                    "barcode": null,
+                    "product_id": 33,
+                    "branch_id": 5,
+                    "additional_key": "33_orange_42",
+                    "slug": "33_orange",
+                    "sku": "s005-orange-42",
+                    "color": "Orange",
+                    "size": "42",
+                    "status": 1,
+                    "stock_status": 0,
+                    "regular_price": 59,
+                    "current_price": 46,
+                    "discount": 61,
+                    "discount_type": "1",
+                    "stock": 0,
+                    "created_by": 2,
+                    "updated_by": 2,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-08-31T07:12:10.000000Z"
+                },
+                {
+                    "id": 213,
+                    "barcode": null,
+                    "product_id": 33,
+                    "branch_id": 5,
+                    "additional_key": "33_orange_44",
+                    "slug": "33_orange",
+                    "sku": "s005-orange-44",
+                    "color": "Orange",
+                    "size": "44",
+                    "status": 1,
+                    "stock_status": 0,
+                    "regular_price": 59,
+                    "current_price": 46,
+                    "discount": 61,
+                    "discount_type": "1",
+                    "stock": 0,
+                    "created_by": 2,
+                    "updated_by": 2,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-08-31T07:12:10.000000Z"
+                },
+                {
+                    "id": 214,
+                    "barcode": null,
+                    "product_id": 33,
+                    "branch_id": 5,
+                    "additional_key": "33_orange_46",
+                    "slug": "33_orange",
+                    "sku": "s005-orange-46",
+                    "color": "Orange",
+                    "size": "46",
+                    "status": 1,
+                    "stock_status": 0,
+                    "regular_price": 59,
+                    "current_price": 46,
+                    "discount": 61,
+                    "discount_type": "1",
+                    "stock": 0,
+                    "created_by": 2,
+                    "updated_by": 2,
+                    "created_at": "2025-08-31T07:12:10.000000Z",
+                    "updated_at": "2025-08-31T07:12:10.000000Z"
+                }
+            ],
+            "review": [
+                {
+                    "id": 1,
+                    "user_id": 1,
+                    "product_id": 33,
+                    "rating": 5,
+                    "title": "Great quality, runs true to size",
+                    "review": "Excellent build quality and the sizing is accurate. I ordered my usual size and they fit perfectly. Highly recommend!",
+                    "status": 1,
+                    "created_by": null,
+                    "updated_by": null,
+                    "created_at": "2025-09-05T12:33:53.000000Z",
+                    "updated_at": "2025-09-05T12:33:53.000000Z"
+                },
+                {
+                    "id": 2,
+                    "user_id": 1,
+                    "product_id": 33,
+                    "rating": 5,
+                    "title": "Great quality, runs true to size",
+                    "review": "Excellent build quality and the sizing is accurate. I ordered my usual size and they fit perfectly. Highly recommend!",
+                    "status": 1,
+                    "created_by": null,
+                    "updated_by": null,
+                    "created_at": "2025-09-05T12:37:44.000000Z",
+                    "updated_at": "2025-09-05T12:37:44.000000Z"
+                }
+            ]
+        },
+
+
+    ]
+}

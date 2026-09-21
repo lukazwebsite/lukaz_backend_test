@@ -1,0 +1,63 @@
+========================= Shop By List =========================================
+======================================================================================
+GET	= http://127.0.0.1:8000/api/shop-by
+======================================================================================
+
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+[
+    {
+        "id": 1,
+        "name": "Men's",
+        "categories": [
+            {
+                "id": 6,
+                "parent_id": 4,
+                "name": "Children of Sub Category ",
+                "slug": "sub-category 02",
+                "icon": "icon/sub-category_M4HOfuUeFEAjBGJg.png",
+                "thumbnail": "thumbnail/sub-category_tbbBxHdOC7i2dHN4.png",
+                "banner": "banner/sub-category_ceKLUYeu4jBopYTx.png",
+                "sequence": null,
+                "description": "This is sub category",
+                "status": 1,
+                "isActive": 1,
+                "created_by": 1,
+                "updated_by": 1,
+                "created_at": "2025-08-03T07:57:46.000000Z",
+                "updated_at": "2025-08-03T07:57:46.000000Z"
+            },
+            {
+                "id": 4,
+                "parent_id": 1,
+                "name": "Sub Category",
+                "slug": "sub-category",
+                "icon": "icon/sub-category_M4HOfuUeFEAjBGJg.png",
+                "thumbnail": "thumbnail/sub-category_tbbBxHdOC7i2dHN4.png",
+                "banner": "banner/sub-category_ceKLUYeu4jBopYTx.png",
+                "sequence": null,
+                "description": "This is sub category",
+                "status": 1,
+                "isActive": 1,
+                "created_by": 1,
+                "updated_by": 1,
+                "created_at": "2025-08-03T07:57:46.000000Z",
+                "updated_at": "2025-08-04T09:57:36.000000Z"
+            }
+        ],
+        "thumbnail": "dFZusJLQCtdZPT6H.png",
+        "status": 1,
+        "description": "<p>hi</p>",
+        "created_by": 2,
+        "updated_by": 2,
+        "created_at": "2025-09-19T11:10:35.000000Z",
+        "updated_at": "2025-09-20T15:04:20.000000Z"
+    }
+]
+--------------------------------------------------------------------------------------
+### Image Link
+--------------------------------------------------------------------------------------
+
+https://{base_url}/shopby/x0GqcqGKeOQxeNpS.jpg
+

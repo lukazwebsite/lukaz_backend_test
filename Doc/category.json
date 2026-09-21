@@ -1,0 +1,279 @@
+===============================Categories==========================================
+======================================================================================
+GET	= http://127.0.0.1:8000/api/categories
+======================================================================================
+
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+{
+    "message": "Categories retrieved successfully",
+    "data": [
+        {
+            "id": 1,
+            "parent_id": null,
+            "name": "Test Category",
+            "slug": null,
+            "icon": "/private/var/tmp/phpGkesaW",
+            "thumbnail": "/private/var/tmp/phpWOr0VD",
+            "banner": null,
+            "sequence": null,
+            "description": null
+        },
+
+    ]
+}
+
+======================================================================================
+GET	= http://127.0.0.1:8000/api/categories/with/childs
+======================================================================================
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+[
+  {
+    "id": 1,
+    "parent_id": null,
+    "name": "Test Category",
+    "slug": "test-category",
+    "icon": "/private/var/tmp/phpGkesaW",
+    "thumbnail": "/private/var/tmp/phpWOr0VD",
+    "banner": null,
+    "sequence": null,
+    "description": null,
+    "status": 1,
+    "isActive": 1,
+    "created_by": null,
+    "updated_by": null,
+    "created_at": "2025-08-03T07:08:15.000000Z",
+    "updated_at": "2025-08-03T07:08:15.000000Z",
+    "childs": [
+      {
+        "id": 4,
+        "parent_id": 1,
+        "name": "Sub Category",
+        "slug": "sub-category",
+        "icon": "icon/sub-category_M4HOfuUeFEAjBGJg.png",
+        "thumbnail": "thumbnail/sub-category_tbbBxHdOC7i2dHN4.png",
+        "banner": "banner/sub-category_ceKLUYeu4jBopYTx.png",
+        "sequence": null,
+        "description": "This is sub category",
+        "status": 1,
+        "isActive": 1,
+        "created_by": 1,
+        "updated_by": 1,
+        "created_at": "2025-08-03T07:57:46.000000Z",
+        "updated_at": "2025-08-04T09:57:36.000000Z",
+        "childs": [
+          {
+           ...
+          }
+        ]
+      },
+
+    ]
+  },
+  {
+    "id": 2,
+    "parent_id": null,
+    "name": "Test Category 02",
+    "slug": "test-category-02",
+    "icon": "/private/var/tmp/phpRnaU3P",
+    "thumbnail": "/private/var/tmp/phpNpYudR",
+    "banner": null,
+    "sequence": null,
+    "description": "null",
+    "status": 1,
+    "isActive": 1,
+    "created_by": null,
+    "updated_by": 1,
+    "created_at": "2025-08-03T07:11:29.000000Z",
+    "updated_at": "2025-08-04T09:02:18.000000Z",
+    "childs": []
+  },
+  {
+    "id": 3,
+    "parent_id": null,
+    "name": "Test Category 03",
+    "slug": "test-category-03",
+    "icon": "icon/test-category-03_319H3EkfAVtGbQvR.jpeg",
+    "thumbnail": "thumbnail/test-category-03_sXL9Y2SsUfGRWMzQ.png",
+    "banner": null,
+    "sequence": null,
+    "description": "hello",
+    "status": 1,
+    "isActive": 1,
+    "created_by": 1,
+    "updated_by": 1,
+    "created_at": "2025-08-03T07:14:23.000000Z",
+    "updated_at": "2025-08-04T09:02:48.000000Z",
+    "childs": []
+  },
+  {
+    "id": 8,
+    "parent_id": null,
+    "name": "check",
+    "slug": "check",
+    "icon": "icon/check_a5Pq4dJxotsai8GF.png",
+    "thumbnail": "thumbnail/check_KeDnI4irU2T9d2WN.png",
+    "banner": null,
+    "sequence": null,
+    "description": "null",
+    "status": 1,
+    "isActive": 1,
+    "created_by": 1,
+    "updated_by": 1,
+    "created_at": "2025-08-04T10:01:22.000000Z",
+    "updated_at": "2025-08-04T10:01:29.000000Z",
+    "childs": []
+  }
+]
+
+
+
+
+
+======================================================================================
+GET	= http://127.0.0.1:8000/api/categories/sub-category/with/products
+======================================================================================
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+
+{
+  "message": "Category retrieved successfully",
+  "category": {
+    "id": 4,
+    "parent_id": 1,
+    "name": "Sub Category",
+    "slug": "sub-category",
+    "icon": "icon/sub-category_M4HOfuUeFEAjBGJg.png",
+    "thumbnail": "thumbnail/sub-category_tbbBxHdOC7i2dHN4.png",
+    "banner": "banner/sub-category_ceKLUYeu4jBopYTx.png",
+    "sequence": null,
+    "description": "This is sub category",
+    "status": 1,
+    "isActive": 1,
+    "created_by": 1,
+    "updated_by": 1,
+    "created_at": "2025-08-03T07:57:46.000000Z",
+    "updated_at": "2025-08-04T09:57:36.000000Z",
+    "products": [
+      {
+        "id": 6,
+        "pivot": {
+          "category_id": 4,
+          "product_id": 6
+        }
+      },
+
+      {
+        ....
+      }
+    ]
+  },
+  "products": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 1,
+        "product_id": 19,
+        "color": "Green",
+        "slug": "19_orange",
+        "color_icon": null,
+        "color_icon_small": null,
+        "color_thumbnails_small": null,
+        "color_thumbnails": null,
+        "color_galleries_small": null,
+        "color_galleries": null,
+        "created_at": null,
+        "updated_at": null,
+        "product": {
+          "id": 19,
+          "name": "Est nulla non volupt",
+          "slug": "est-nulla-non-volupt",
+          "regular_price": 78,
+          "current_price": 91,
+          "discount_type": "1",
+          "discount": 39,
+          "brand_id": 1,
+          "status": 1,
+          "category_ids": [
+            "7",
+            "4"
+          ],
+          "sku": "SKUT",
+          "description": "<p>Cupidatat&nbsp;aliqua.&nbsp;Ex.</p>",
+          "color": [
+            "Orange",
+            "Black",
+            "Blue"
+          ],
+          "size": [
+            "42",
+            "44",
+            "46"
+          ],
+          "is_pre_order": 0,
+          "pre_order_days": "4",
+          "pre_order_notes": "Pre note is going here",
+          "seo_title": "Est tenetur ut non d",
+          "seo_description": "Adipisci corrupti e",
+          "seo_keywords": "Autem dolores blandi",
+          "start_date": null,
+          "end_date": null,
+          "start_time": null,
+          "end_time": null,
+          "special_discount": 0,
+          "created_by": 1,
+          "updated_by": 1,
+          "created_at": "2025-08-10T08:34:32.000000Z",
+          "updated_at": "2025-08-10T08:34:32.000000Z"
+        }
+      }
+    ],
+    "first_page_url": "/api/categories/sub-category/with/products?page=1",
+    "from": 1,
+    "last_page": 3,
+    "last_page_url": "/api/categories/sub-category/with/products?page=3",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "page": null,
+        "active": false
+      },
+      {
+        "url": "/api/categories/sub-category/with/products?page=1",
+        "label": "1",
+        "page": 1,
+        "active": true
+      },
+      {
+        "url": "/api/categories/sub-category/with/products?page=2",
+        "label": "2",
+        "page": 2,
+        "active": false
+      },
+      {
+        "url": "/api/categories/sub-category/with/products?page=3",
+        "label": "3",
+        "page": 3,
+        "active": false
+      },
+      {
+        "url": "/api/categories/sub-category/with/products?page=2",
+        "label": "Next &raquo;",
+        "page": 2,
+        "active": false
+      }
+    ],
+    "next_page_url": "/api/categories/sub-category/with/products?page=2",
+    "path": "/api/categories/sub-category/with/products",
+    "per_page": 10,
+    "prev_page_url": null,
+    "to": 10,
+    "total": 26
+  }
+}
+

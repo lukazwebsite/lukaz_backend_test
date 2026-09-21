@@ -1,0 +1,125 @@
+=== Apply Coupon ===
+======================================================================================
+POST	= http://127.0.0.1:8000/api/get-discount
+======================================================================================
+
+--------------------------------------------------------------------------------------
+### INPUT
+--------------------------------------------------------------------------------------
+{
+    "promo_code": "test-coupon"
+}
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+{
+    "discount_type": 0,
+    "discount": 50,
+    "max_discount": 200
+}
+
+
+============================== Districts =============================================
+======================================================================================
+GET	= http://127.0.0.1:8000/api/countries/18/districts
+======================================================================================
+
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+[
+    {
+        "id": 55,
+        "country_id": 18,
+        "courier_charge": 60,
+        "name": "Bagerhat",
+        "bn_name": "বাগেরহাট",
+        "lat": "22.651568",
+        "lon": "89.785938",
+        "website": "www.bagerhat.gov.bd",
+        "created_at": "2015-09-12T22:33:27.000000Z",
+        "updated_at": "2015-09-12T22:36:20.000000Z"
+    },
+    {
+        "id": 40,
+        "country_id": 18,
+        "courier_charge": 60,
+        "name": "Bandarban",
+        "bn_name": "বান্দরবান",
+        "lat": "22.1953275",
+        "lon": "92.2183773",
+        "website": "www.bandarban.gov.bd",
+        "created_at": "2015-09-12T22:33:27.000000Z",
+        "updated_at": "2015-09-12T22:36:20.000000Z"
+    },
+]
+
+
+=== Place Order ===
+======================================================================================
+POST	= http://127.0.0.1:8000/api/orders/place
+======================================================================================
+
+--------------------------------------------------------------------------------------
+### INPUT
+--------------------------------------------------------------------------------------
+{
+    "shipping_cost": 50,
+    "promo_code": "test-coupon",
+    "description": "Order description here",
+    "payment_method": "bkash", bkash / sslcommerz / cod
+    "items": [
+        {
+            "brand_id": 2,
+            "item_id": 12345,
+            "item_name": "Item 1",
+            "icon": "item1_icon.png",
+            "slug": "item-1",
+            "color": "red",
+            "size": "M",
+            "regular_price": 500,
+            "current_price": 450,
+            "discount_amount": 50,
+            "quantity": 2
+        },
+        {
+
+            "brand_id": 2,
+            "item_id": 12346,
+            "item_name": "Item 2",
+            "icon": "item2_icon.png",
+            "slug": "item-2",
+            "color": "blue",
+            "size": "L",
+            "regular_price": 300,
+            "current_price": 250,
+            "discount_amount": 30,
+            "quantity": 2
+        }
+    ],
+    "shipping": {
+        "district_id": 10,
+        "thana": "Dhaka",
+        "full_name": "John Doe",
+        "phone": "01797384141",
+        "address": "123 Some Street, Some City",
+        "note": "Please deliver between 9 AM to 6 PM"
+    }
+}
+--------------------------------------------------------------------------------------
+### OUTPUT
+--------------------------------------------------------------------------------------
+/sslcommerz
+{
+    "payment_url": "https://sandbox.sslcommerz.com/gwprocess/v4/api.php?token=E7C6D3C8-5A2D-11EE-80F0-FA163E7C3F1B"
+}
+/bkash
+{
+    "payment_url": "https://sandbox.payment.bkash.com/?paymentId=TR0011zEmyWPv1756576466357&hash=(6Ni((pm4XNphVhzjKAav*kYXDziU_Ee*NSjuM8D1jP(9BeAg5hIOaIOpEaIQmmHIiktAcX6aFef!PUllQa3.N4gTU1-vozF5(tj1756576466357&mode=0011&apiVersion=v1.2.0-beta/"
+}
+/cod
+{
+    "message": "Order placed successfully",
+    "order_no": "LS-20250826192719-VLHQZ",
+    "token": "3|s443O0heUeIPnD0Rb6nWn7bxjiAjP1GTbLUWRUxE12b73768"
+}
